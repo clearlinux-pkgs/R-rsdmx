@@ -4,23 +4,37 @@
 #
 Name     : R-rsdmx
 Version  : 0.5.13
-Release  : 8
+Release  : 9
 URL      : https://cran.r-project.org/src/contrib/rsdmx_0.5-13.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/rsdmx_0.5-13.tar.gz
 Summary  : Tools for Reading SDMX Data and Metadata
 Group    : Development/Tools
 License  : GPL-2.0+
-Requires: R-RCurl
-Requires: R-XML
-Requires: R-plyr
+Requires: R-Rcpp
+Requires: R-assertthat
+Requires: R-bitops
+Requires: R-cli
+Requires: R-markdown
+Requires: R-withr
 BuildRequires : R-RCurl
+BuildRequires : R-Rcpp
 BuildRequires : R-XML
+BuildRequires : R-assertthat
+BuildRequires : R-bitops
+BuildRequires : R-cli
+BuildRequires : R-markdown
 BuildRequires : R-plyr
+BuildRequires : R-withr
 BuildRequires : buildreq-R
 
 %description
-exchanged through the Statistical Data and Metadata Exchange (SDMX) framework,
-  currently focusing on the SDMX XML standard format (SDMX-ML).
+**rsdmx**
+=======
+[![Build Status](https://travis-ci.org/opensdmx/rsdmx.svg?branch=master)](https://travis-ci.org/opensdmx/rsdmx)
+[![codecov.io](http://codecov.io/github/opensdmx/rsdmx/coverage.svg?branch=master)](http://codecov.io/github/opensdmx/rsdmx?branch=master)
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/rsdmx)](https://cran.r-project.org/package=rsdmx)
+[![Github_Status_Badge](https://img.shields.io/badge/Github-0.5--13-blue.svg)](https://github.com/opensdmx/rsdmx)
+[![DOI](https://zenodo.org/badge/5183/opensdmx/rsdmx.svg)](http://doi.org/10.5281/zenodo.592404)
 
 %prep
 %setup -q -c -n rsdmx
@@ -30,11 +44,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1537538822
+export SOURCE_DATE_EPOCH=1552862126
 
 %install
+export SOURCE_DATE_EPOCH=1552862126
 rm -rf %{buildroot}
-export SOURCE_DATE_EPOCH=1537538822
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -69,8 +83,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library rsdmx|| : 
-cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
+R CMD check --no-manual --no-examples --no-codoc  rsdmx || :
 
 
 %files
@@ -122,3 +135,27 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/rsdmx/help/rsdmx.rdx
 /usr/lib64/R/library/rsdmx/html/00Index.html
 /usr/lib64/R/library/rsdmx/html/R.css
+/usr/lib64/R/library/rsdmx/tests/test-all.R
+/usr/lib64/R/library/rsdmx/tests/testthat/test_Codelists.R
+/usr/lib64/R/library/rsdmx/tests/testthat/test_CompactData.R
+/usr/lib64/R/library/rsdmx/tests/testthat/test_Concepts.R
+/usr/lib64/R/library/rsdmx/tests/testthat/test_CrossSectionalData.R
+/usr/lib64/R/library/rsdmx/tests/testthat/test_Data.R
+/usr/lib64/R/library/rsdmx/tests/testthat/test_DataFlows.R
+/usr/lib64/R/library/rsdmx/tests/testthat/test_DataStructureDefinition.R
+/usr/lib64/R/library/rsdmx/tests/testthat/test_DataStructures.R
+/usr/lib64/R/library/rsdmx/tests/testthat/test_Footer.R
+/usr/lib64/R/library/rsdmx/tests/testthat/test_GenericData.R
+/usr/lib64/R/library/rsdmx/tests/testthat/test_Header.R
+/usr/lib64/R/library/rsdmx/tests/testthat/test_Main.R
+/usr/lib64/R/library/rsdmx/tests/testthat/test_Main_Helpers.R
+/usr/lib64/R/library/rsdmx/tests/testthat/test_MessageGroup.R
+/usr/lib64/R/library/rsdmx/tests/testthat/test_Namespaces.R
+/usr/lib64/R/library/rsdmx/tests/testthat/test_OrganisationSchemes.R
+/usr/lib64/R/library/rsdmx/tests/testthat/test_RequestBuilder.R
+/usr/lib64/R/library/rsdmx/tests/testthat/test_Schema.R
+/usr/lib64/R/library/rsdmx/tests/testthat/test_ServiceProvider.R
+/usr/lib64/R/library/rsdmx/tests/testthat/test_Soap.R
+/usr/lib64/R/library/rsdmx/tests/testthat/test_StructureSpecificData.R
+/usr/lib64/R/library/rsdmx/tests/testthat/test_Type.R
+/usr/lib64/R/library/rsdmx/tests/testthat/test_saveSDMX.R
