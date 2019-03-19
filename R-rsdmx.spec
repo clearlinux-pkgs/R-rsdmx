@@ -4,18 +4,13 @@
 #
 Name     : R-rsdmx
 Version  : 0.5.13
-Release  : 10
+Release  : 11
 URL      : https://cran.r-project.org/src/contrib/rsdmx_0.5-13.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/rsdmx_0.5-13.tar.gz
 Summary  : Tools for Reading SDMX Data and Metadata
 Group    : Development/Tools
 License  : GPL-2.0+
-Requires: R-Rcpp
-Requires: R-assertthat
-Requires: R-bitops
-Requires: R-cli
-Requires: R-markdown
-Requires: R-withr
+Requires: R-rlang
 BuildRequires : R-RCurl
 BuildRequires : R-Rcpp
 BuildRequires : R-XML
@@ -24,6 +19,7 @@ BuildRequires : R-bitops
 BuildRequires : R-cli
 BuildRequires : R-markdown
 BuildRequires : R-plyr
+BuildRequires : R-rlang
 BuildRequires : R-withr
 BuildRequires : buildreq-R
 
@@ -44,10 +40,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1552862126
+export SOURCE_DATE_EPOCH=1552954550
 
 %install
-export SOURCE_DATE_EPOCH=1552862126
+export SOURCE_DATE_EPOCH=1552954550
 rm -rf %{buildroot}
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
