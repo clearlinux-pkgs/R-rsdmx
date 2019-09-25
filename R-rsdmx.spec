@@ -4,33 +4,23 @@
 #
 Name     : R-rsdmx
 Version  : 0.5.13
-Release  : 15
+Release  : 16
 URL      : https://cran.r-project.org/src/contrib/rsdmx_0.5-13.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/rsdmx_0.5-13.tar.gz
 Summary  : Tools for Reading SDMX Data and Metadata
 Group    : Development/Tools
 License  : GPL-2.0+
-Requires: R-rlang
+Requires: R-RCurl
+Requires: R-XML
+Requires: R-plyr
 BuildRequires : R-RCurl
-BuildRequires : R-Rcpp
 BuildRequires : R-XML
-BuildRequires : R-assertthat
-BuildRequires : R-bitops
-BuildRequires : R-cli
-BuildRequires : R-markdown
 BuildRequires : R-plyr
-BuildRequires : R-rlang
-BuildRequires : R-withr
 BuildRequires : buildreq-R
 
 %description
-**rsdmx**
-=======
-[![Build Status](https://travis-ci.org/opensdmx/rsdmx.svg?branch=master)](https://travis-ci.org/opensdmx/rsdmx)
-[![codecov.io](http://codecov.io/github/opensdmx/rsdmx/coverage.svg?branch=master)](http://codecov.io/github/opensdmx/rsdmx?branch=master)
-[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/rsdmx)](https://cran.r-project.org/package=rsdmx)
-[![Github_Status_Badge](https://img.shields.io/badge/Github-0.5--13-blue.svg)](https://github.com/opensdmx/rsdmx)
-[![DOI](https://zenodo.org/badge/5183/opensdmx/rsdmx.svg)](http://doi.org/10.5281/zenodo.592404)
+exchanged through the Statistical Data and Metadata Exchange (SDMX) framework,
+  currently focusing on the SDMX XML standard format (SDMX-ML).
 
 %prep
 %setup -q -c -n rsdmx
@@ -39,13 +29,13 @@ BuildRequires : buildreq-R
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1552954550
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1569385121
 
 %install
-export SOURCE_DATE_EPOCH=1552954550
+export SOURCE_DATE_EPOCH=1569385121
 rm -rf %{buildroot}
-export LANG=C
+export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -74,12 +64,12 @@ R CMD INSTALL --preclean --install-tests --built-timestamp=${SOURCE_DATE_EPOCH} 
 cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 %{__rm} -rf %{buildroot}%{_datadir}/R/library/R.css
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc  rsdmx || :
+R CMD check --no-manual --no-examples --no-codoc rsdmx || :
 
 
 %files
