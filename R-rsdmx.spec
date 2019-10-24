@@ -4,7 +4,7 @@
 #
 Name     : R-rsdmx
 Version  : 0.5.13
-Release  : 16
+Release  : 17
 URL      : https://cran.r-project.org/src/contrib/rsdmx_0.5-13.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/rsdmx_0.5-13.tar.gz
 Summary  : Tools for Reading SDMX Data and Metadata
@@ -17,10 +17,16 @@ BuildRequires : R-RCurl
 BuildRequires : R-XML
 BuildRequires : R-plyr
 BuildRequires : buildreq-R
+BuildRequires : util-linux
 
 %description
-exchanged through the Statistical Data and Metadata Exchange (SDMX) framework,
-  currently focusing on the SDMX XML standard format (SDMX-ML).
+**rsdmx**
+=======
+[![Build Status](https://travis-ci.org/opensdmx/rsdmx.svg?branch=master)](https://travis-ci.org/opensdmx/rsdmx)
+[![codecov.io](http://codecov.io/github/opensdmx/rsdmx/coverage.svg?branch=master)](http://codecov.io/github/opensdmx/rsdmx?branch=master)
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/rsdmx)](https://cran.r-project.org/package=rsdmx)
+[![Github_Status_Badge](https://img.shields.io/badge/Github-0.5--13-blue.svg)](https://github.com/opensdmx/rsdmx)
+[![DOI](https://zenodo.org/badge/5183/opensdmx/rsdmx.svg)](http://doi.org/10.5281/zenodo.592404)
 
 %prep
 %setup -q -c -n rsdmx
@@ -30,10 +36,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1569385121
+export SOURCE_DATE_EPOCH=1571897922
 
 %install
-export SOURCE_DATE_EPOCH=1569385121
+export SOURCE_DATE_EPOCH=1571897922
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
