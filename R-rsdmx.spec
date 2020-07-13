@@ -4,7 +4,7 @@
 #
 Name     : R-rsdmx
 Version  : 0.5.14
-Release  : 22
+Release  : 23
 URL      : https://cran.r-project.org/src/contrib/rsdmx_0.5-14.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/rsdmx_0.5-14.tar.gz
 Summary  : Tools for Reading SDMX Data and Metadata
