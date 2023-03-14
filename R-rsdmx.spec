@@ -4,7 +4,7 @@
 #
 Name     : R-rsdmx
 Version  : 0.6.2
-Release  : 43
+Release  : 44
 URL      : https://cran.r-project.org/src/contrib/rsdmx_0.6-2.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/rsdmx_0.6-2.tar.gz
 Summary  : Tools for Reading SDMX Data and Metadata
@@ -19,9 +19,6 @@ BuildRequires : R-XML
 BuildRequires : R-httr
 BuildRequires : R-plyr
 BuildRequires : buildreq-R
-# Suppress stripping binaries
-%define __strip /bin/true
-%define debug_package %{nil}
 
 %description
 exchanged through the Statistical Data and Metadata Exchange (SDMX) framework,
@@ -36,10 +33,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1676052822
+export SOURCE_DATE_EPOCH=1678834795
 
 %install
-export SOURCE_DATE_EPOCH=1676052822
+export SOURCE_DATE_EPOCH=1678834795
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
